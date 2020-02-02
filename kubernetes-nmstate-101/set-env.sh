@@ -54,6 +54,7 @@ export SECONDARY_NETWORKS=2
 export NICS_PER_SECONDARY_NETWORK=2
 cluster::setup
 
+export PATH=$(cluster::path):${PATH}
 _knmstate::setup
 
-PS1='$ ' PATH=$(cluster::path) bash
+PS1='$ ' bash
