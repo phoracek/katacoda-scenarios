@@ -47,22 +47,27 @@ function _knmstate::setup() {
     kubectl get nnce &> /dev/null || true
 }
 
-curl -LsO https://raw.githubusercontent.com/phoracek/kind-networking/master/cluster.sh
-source cluster.sh
-export WORKER_NODES=1
-export SECONDARY_NETWORKS=2
-export NICS_PER_SECONDARY_NETWORK=2
-cluster::setup
+function prepare_cluster() {
+    curl -LsO https://raw.githubusercontent.com/phoracek/kind-networking/master/cluster.sh
+    source cluster.sh
+    export WORKER_NODES=1
+    export SECONDARY_NETWORKS=2
+    export NICS_PER_SECONDARY_NETWORK=2
+    cluster::setup
 
-export PATH=$(cluster::path):${PATH}
-_knmstate::setup
+    export PATH=$(cluster::path):${PATH}
+    _knmstate::setup
 
-# Wait for the worker to join the cluster
-while ! kubectl get nns kind-worker &> /dev/null; do
-    sleep 1
-done
+    # Wait for the worker to join the cluster
+    while ! kubectl get nns kind-worker &> /dev/null; do
+        sleep 1
+    done
+
+    clear
+    echo 'The cluster is ready'
+
+    PS1='$ ' bash
+}
 
 clear
-echo 'The cluster is ready'
-
-PS1='$ ' bash
+prepare_cluster
