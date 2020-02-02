@@ -25,7 +25,7 @@ You can also use short name `nns` to reach the same effect:
 
 By using `-o yaml` you obtain the full network state of the given node:
 
-`kubectl get nns node01 -o yaml`{execute}
+`kubectl get nns node01 -o yaml`{{execute}}
 
 As you can see, the object is cluster-wide (i.e. does not belong to a
 namespace). Its `name` reflects the name of the Node it represents.
