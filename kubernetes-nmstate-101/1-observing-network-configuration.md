@@ -27,14 +27,12 @@ By using `-o yaml` you obtain the full network state of the given node:
 
 `kubectl get nns kind-worker -o yaml`{{execute}}
 
-As you can see, the object is cluster-wide (i.e. does not belong to a
-namespace). Its `name` reflects the name of the Node it represents.
+The `name` of the object reflects the name of the Node it represents.
 
 The main part of the object is located in `spec.currentState`. It contains the
-DNS configuration, list of interfaces observed on the host and their
-configuration, and routes.
-
-<!-- TODO: Link API introduction once it is added to docs -->
+DNS configuration in `status.currentState.dns-resolver`, list of interfaces
+observed on the host and their configuration in
+`status.currentState.interfaces`, and routes in `status.currentState.routers`.
 
 Last attribute of the object is `lastSuccessfulUpdateTime`. It keeps a timestamp
 recording the last successful update of the report. Since the report is updated
