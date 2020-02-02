@@ -1,13 +1,13 @@
 {
   "title": "Introduction to kubernetes-nmstate",
-  "description": "This comprehensive 101 series will guide you through all the features of kubernetes-nmstate",
+  "description": "In this 101 tutorial you will learn how to observe and configure networking on your Kubernetes nodes",
   "difficulty": "Beginner",
   "time": "50 minutes",
   "details": {
     "steps": [
       {
-        "title": "Step 1",
-        "text": "step1.md"
+        "title": "Observing network configuration",
+        "text": "1-observing-network-configuration.md"
       }
     ],
     "intro": {
