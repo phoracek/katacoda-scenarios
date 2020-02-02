@@ -57,4 +57,12 @@ cluster::setup
 export PATH=$(cluster::path):${PATH}
 _knmstate::setup
 
+# Wait for the worker to join the cluster
+while ! kubectl get nns kind-worker &> /dev/null; do
+    sleep 1
+done
+
+clear
+echo 'The cluster is ready'
+
 PS1='$ ' bash
