@@ -1,5 +1,3 @@
-# Observing network configuration
-
 Please hang tight while the cluster is being setup, it should take approximately
 X minutes.
 
@@ -13,7 +11,7 @@ The operator periodically reports state of node network interfaces to the API
 server. These reports are available through `NodeNetworkState` objects that are
 created per each node.
 
-## List all handled nodes
+# List all handled nodes
 
 List `NodeNetworkStates` from all nodes:
 
@@ -23,7 +21,7 @@ You can also use short name `nns` to reach the same effect:
 
 `kubectl get nns`{{execute}}
 
-## Read state of a specific node
+# Read state of a specific node
 
 By using `-o yaml` you obtain the full network state of the given node:
 
