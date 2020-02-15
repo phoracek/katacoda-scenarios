@@ -1,4 +1,4 @@
-KNMSTATE_VERSION=v0.13.0
+KNMSTATE_VERSION=v0.15.0
 
 function _knmstate::_wait_for_deployment() {
     namespace=$1

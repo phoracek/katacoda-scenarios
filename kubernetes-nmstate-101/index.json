@@ -8,7 +8,31 @@
       {
         "title": "Observing network configuration",
         "text": "1-observing-network-configuration.md"
-      }
+      },
+      {
+        "title": "Configuration",
+        "text": "2-configuration.md"
+      },
+      {
+        "title": "Creating interfaces",
+        "text": "3-creating-interfaces.md"
+      },
+      {
+        "title": "Removing interfaces",
+        "text": "4-removing-interfaces.md"
+      },
+      {
+        "title": "Restoring original configuration",
+        "text": "5-restoring-original-configuration.md"
+      },
+      {
+        "title": "Selecting nodes",
+        "text": "6-selecting-nodes.md"
+      },
+      {
+        "title": "Troubleshooting",
+        "text": "7-troubleshooting.md"
+      },
     ],
     "intro": {
       "text": "intro.md",

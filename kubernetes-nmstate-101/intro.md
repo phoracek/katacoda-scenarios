@@ -8,6 +8,8 @@ This 101 tutorial will guide you through basics of:
 * Observing network configuration of your nodes
 * Configuring a bonding interface across all your nodes
 * Configuring a VLAN interface on a selected node
+* Removing interfaces
+* Restoring original network configuration
 * Troubleshooting issues with the configuration
 
 For more info about kubernetes-nmstate, its deployment, comprehensive tutorial
