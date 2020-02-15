@@ -7,22 +7,23 @@ all the key-value pairs in the `nodeSelector`.
 
 Let's look at the manifest:
 
-`cat vlan100_node01_up.yaml`{{execute}}
+`cat vlan100_kind-worker_up.yaml`{{execute}}
 
 And then apply it:
 
-`kubectl apply -f vlan100_node01_up.yaml`{{execute}}
+`kubectl apply -f vlan100_kind-worker_up.yaml`{{execute}}
 
 Wait for the Policy to get applied:
 
 `kubectl wait nncp vlan100 --for condition=Available --timeout 2m`{{execute}}
 
 The list of Enactments then shows that the Policy has been applied only on
-Node `node01`, while `node02` is reporting `NodeSelectorNotMatching`:
+Node `kind-worker`, while `kind-control-plane` is reporting
+`NodeSelectorNotMatching`:
 
 `kubectl get nnce`{{execute}}
 
 After a closer observation of `status.conditions`, we can see that it was indeed
 caused by not-matching selectors:
 
-`kubectl get nnce node02.vlan100 -o yaml`{{execute}}
+`kubectl get nnce kind-worker.vlan100 -o yaml`{{execute}}

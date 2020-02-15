@@ -46,7 +46,7 @@ We can also use short name `nnce` to reach the same effect:
 
 By using `-o yaml` we obtain the full status of given Enactment:
 
-`kubectl get nnce node01.bond0-eth1-eth2 -o yaml`{{execute}}
+`kubectl get nnce kind-worker.bond0-eth1-eth2 -o yaml`{{execute}}
 
 The output contains the `desiredState` applied by the Policy for the given Node.
 It also contains a list of conditions. This list is more detailed than the one
@@ -58,7 +58,7 @@ the node (`Progressing`), if the configuration failed (`Failing`) or succeeded
 Our Enactment shows that it successfully applied the configuration, let's use
 `NodeNetworkState` to verify it:
 
-`kubectl get nns node01 -o yaml`{{execute}}
+`kubectl get nns kind-worker -o yaml`{{execute}}
 
 As seen in the output, the configuration is indeed applied and there is a bond
 available with two NICs used as its slaves.

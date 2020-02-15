@@ -8,7 +8,7 @@ the user.
 `NodeNetworkState` shows that both of the NICs are now down and without any IP
 configuration.
 
-`kubectl get nns node01 -o yaml`{{execute}}
+`kubectl get nns kind-worker -o yaml`{{execute}}
 
 In order to configure IP on previously enslaved NICs, one needs to use a policy
 explicitly specifying that.
@@ -27,4 +27,4 @@ Wait for the Policy to get applied:
 
 Both NICs are now back up and with assigned IPs:
 
-`kubectl get nns node01 -o yaml`{{execute}}
+`kubectl get nns kind-worker -o yaml`{{execute}}

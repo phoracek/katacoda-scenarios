@@ -1,5 +1,91 @@
 KNMSTATE_VERSION=v0.15.0
 
+function dump_manifests() {
+    echo 'apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: bond0-eth1-eth2
+spec:
+  desiredState:
+    interfaces:
+    - name: bond0
+      type: bond
+      state: up
+      ipv4:
+        dhcp: true
+        enabled: true
+      link-aggregation:
+        mode: balance-rr
+        slaves:
+        - eth1
+        - eth2' > bond0-eth1-eth2_up.yaml
+
+    echo 'apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: bond0-eth1-eth2
+spec:
+  desiredState:
+    interfaces:
+    - name: bond0
+      state: absent' > bond0-eth1-eth2_absent.yaml
+
+    echo 'apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: eth1
+spec:
+  desiredState:
+    interfaces:
+    - name: eth1
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: true
+        enabled: true
+---
+apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: eth2
+spec:
+  desiredState:
+    interfaces:
+    - name: eth2
+      type: ethernet
+      state: up
+      ipv4:
+        dhcp: true
+        enabled: true' > eth1-eth2_up.yaml
+
+    echo 'apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: vlan100
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: kind-worker
+  desiredState:
+    interfaces:
+    - name: eth1.100
+      type: vlan
+      state: up
+      vlan:
+        base-iface: eth1
+        id: 100' > vlan100_kind-worker_up.yaml
+
+    echo 'apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: eth666
+spec:
+  desiredState:
+    interfaces:
+    - name: eth666
+      type: ethernet
+      state: up' > eth666_up.yaml
+}
+
 function _knmstate::_wait_for_deployment() {
     namespace=$1
     name=$2
@@ -69,5 +155,6 @@ function prepare_cluster() {
     PS1='$ ' bash
 }
 
+dump_manifests
 clear
 prepare_cluster

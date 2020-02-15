@@ -33,7 +33,7 @@ We can list the Enactments to see why we are in the `Degraded` state:
 
 Both Enactments of eth666 Policy have `FailedToConfigure`, let's see why:
 
-`kubectl get nnce node01.eth666 -o yaml`{{execute}}
+`kubectl get nnce kind-worker.eth666 -o yaml`{{execute}}
 
 The message in `Failing` condition is currently a little bloated since it
 contains the whole error output of a failed call. The interesting message is in
