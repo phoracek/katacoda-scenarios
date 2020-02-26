@@ -1,4 +1,4 @@
-KNMSTATE_VERSION=v0.15.0
+KNMSTATE_VERSION=v0.15.2
 
 function dump_manifests() {
     echo 'apiVersion: nmstate.io/v1alpha1
