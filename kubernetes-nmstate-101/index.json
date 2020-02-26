@@ -2,7 +2,7 @@
   "title": "Introduction to kubernetes-nmstate",
   "description": "In this 101 tutorial you will learn how to observe and configure networking on your Kubernetes nodes",
   "difficulty": "Beginner",
-  "time": "50 minutes",
+  "time": "20 minutes",
   "details": {
     "steps": [
       {
