@@ -36,7 +36,8 @@
     ],
     "intro": {
       "text": "intro.md",
-      "code": "set-env.sh"
+      "code": "set-env.sh",
+      "courseData": "keep-nics-up.sh"
     },
     "finish": {
       "text": "finish.md"
