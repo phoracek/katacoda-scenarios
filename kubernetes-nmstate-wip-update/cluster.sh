@@ -1,4 +1,4 @@
-KIND_NODE_IMAGE=quay.io/phoracek/kind-node-networkmanager
+KIND_NODE_IMAGE=quay.io/phoracek/kind-node-networkmanager:1.22
 
 TMP_CONF=${PWD}/.etc
 TMP_VAR=${PWD}/.var
